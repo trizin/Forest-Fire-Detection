@@ -30,9 +30,8 @@ model = tf.keras.Model(inputs, output)
 # %% Compile model
 model.compile(optimizer=tf.keras.optimizers.Adam(lr=1e-4), loss=tf.keras.losses.BinaryCrossentropy(), metrics=['accuracy'])
 # %% Train model
-model.fit(ds_train, validation_data=ds_val, epochs=20, callbacks=[tf.keras.callbacks.EarlyStopping(patience=3, restore_best_weights=True)])
+model.fit(ds_train, validation_data=ds_val, epochs=50, callbacks=[tf.keras.callbacks.EarlyStopping(patience=3, restore_best_weights=True)])
 # %% Evaluate Model
 model.evaluate(ds_test)
 # %% Save model
 model.save('model.h5')
-# %%
